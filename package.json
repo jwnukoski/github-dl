@@ -1,0 +1,24 @@
+{
+  "name": "github-dl",
+  "version": "1.0.0",
+  "description": "Unofficial app to download all your repos locally.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwnukoski/github-dl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwnukoski/github-dl/issues"
+  },
+  "homepage": "https://github.com/jwnukoski/github-dl#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "shelljs": "^0.8.4"
+  }
+}
