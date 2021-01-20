@@ -9,8 +9,10 @@
     output: process.stdout
   })
 
-  function makeUserDir (username) {
-    if (!fs.existsSync(`./users/${username}`)) { fs.mkdirSync(`./users/${username}`) }
+  function makeDirIfDoesntExist (path) {
+    if (!fs.existsSync(path)) {
+      fs.mkdirSync(path)
+    }
   }
 
   function promptYesNo (question, callback) {
@@ -33,7 +35,7 @@
     }).then(repos => {
       if (repos.length <= 0) { throw new Error(`No repos found for ${username}`) }
 
-      makeUserDir()
+      makeDirIfDoesntExist(`./users/${username}`)
 
       repos.forEach(val => {
         shell.exec(`git clone ${val.url} ./users/${username}/${val.name}`)
@@ -48,7 +50,7 @@
   }
 
   function getPrivatelyAndPubliclyOwnedRepos (username) {
-    makeUserDir()
+    makeDirIfDoesntExist(`./users/${username}`)
     console.log(`\nIn order to access private repositories, you will need to provide a personal access token with private repo access.\nYou can create one here: https://github.com/settings/tokens\nStore it in ./users/${username}/token.txt\nDelete this when you're done!!!\n`)
 
     promptYesNo('Continue? ', choice => {
@@ -87,6 +89,8 @@
       })
     })
   }
+
+  makeDirIfDoesntExist('./users')
 
   rl.question('Input Github username: ', (username) => {
     // TODO: Needs redone with proper promise chains or awaits
