@@ -1,5 +1,6 @@
 # github-dl
-Unofficial app to download all your repos locally.
+Unofficial app to download all your repos locally.  
+![Preview of github-dl](https://i.imgur.com/OGZpS2i.gif "github-dl Demo")
 
 # Current Features
 - Clone publicly respositories with no token
